@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Watsonx Email Webhook",
+    "description": "Send emails via Vercel API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://watsonx-email-webhook-soranys-projects.vercel.app/api"
+    }
+  ],
+  "paths": {
+    "/send-email": {
+      "post": {
+        "summary": "Send an email",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Sorany Campo"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "socam926@gmail.com"
+                  },
+                  "message": {
+                    "type": "string",
+                    "example": "Hello from Watsonx!"
+                  }
+                },
+                "required": ["name", "email", "message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "email_sent"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error sending email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "Error message here"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
