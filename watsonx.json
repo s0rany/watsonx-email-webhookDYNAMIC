@@ -32,6 +32,10 @@
                   "message": {
                     "type": "string",
                     "example": "Hello from Watsonx!"
+                  },
+                  "emailTo": {
+                    "type": "string",
+                    "example": "mba6105@psu.edu"
                   }
                 },
                 "required": ["name", "email", "message"]

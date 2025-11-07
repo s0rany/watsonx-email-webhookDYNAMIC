@@ -23,7 +23,7 @@ app.post("/send-email", async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"${name} (via Watsonx)" <${process.env.EMAIL_USER}>`, // shows sender name
-      to: process.env.EMAIL_USER, // send to yourself for testing
+      to: emailTo || process.env.EMAIL_USER, // send to yourself for testing
       subject: `Message from ${name}`,
       text: `From: ${email}\n\n${message}`, // include sender email in the body
     });
