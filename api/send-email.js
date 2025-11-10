@@ -28,6 +28,3 @@ export default async function handler(req, res) {
     res.status(500).json({ status: "error", error: error.message });
   }
 }
-git branch -M main
-git remote add origin https://github.com/s0rany/watsonx-email-webhookDYNAMIC.git
-git push -u origin main
